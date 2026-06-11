@@ -1,0 +1,12 @@
+# PHP binary installation
+php/
+
+# Composer binary
+composer.phar
+
+# Node modules (handled inside book-frontend)
+book-frontend/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db

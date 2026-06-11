@@ -1,0 +1,33 @@
+<div style="font-family: sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
+  <h2>📚 Book Collection Manager</h2>
+
+  <!-- Add Book Form -->
+  <form (ngSubmit)="onSubmit()" style="margin-bottom: 30px; padding: 15px; background-color: #f9f9f9; border-radius: 5px;">
+    <h3>Add a New Book</h3>
+    <div style="margin-bottom: 10px;">
+      <input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Title" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <input type="text" [(ngModel)]="newBook.author" name="author" placeholder="Author" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <input type="text" [(ngModel)]="newBook.isbn" name="isbn" placeholder="ISBN (13 chars)" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    </div>
+    <div style="margin-bottom: 10px;">
+      <input type="number" [(ngModel)]="newBook.publishedYear" name="publishedYear" placeholder="Published Year" required style="width: 100%; padding: 8px; box-sizing: border-box;">
+    </div>
+    <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px;">Add Book</button>
+  </form>
+
+  <!-- Books List -->
+  <h3 style="border-bottom: 2px solid #007bff; padding-bottom: 5px;">Current Books</h3>
+  <ul style="list-style-type: none; padding: 0;">
+    <li *ngFor="let book of books" style="padding: 10px; border-bottom: 1px solid #eee; margin-bottom: 5px; background: #fff;">
+      <strong>{{ book.title }}</strong> by {{ book.author }} <br>
+      <small style="color: #666;">ISBN: {{ book.isbn }} | Published: {{ book.publishedYear }}</small>
+    </li>
+    <li *ngIf="books.length === 0" style="color: #999; text-align: center; padding: 20px;">
+      No books in your collection yet. Add one above!
+    </li>
+  </ul>
+</div>
